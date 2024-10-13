@@ -1,0 +1,30 @@
+.header {
+    flex: 1 1 auto;
+    background-color: rgb(150, 103, 158);
+  }
+
+  .mat-toolbar {
+    background: #b86cae;
+    color: rgba(0, 0, 0, .87);
+}
+
+  // .create-post{
+  //   background: rgb(128, 128, 249);
+  // }
+
+  .view-post{
+
+    padding: 5px;
+  }
+
+  .search{
+    font-size: 14px;
+  }
+  .searchBar{
+    size: 20px;
+    margin-right: 10px;
+  }
+
+  .button-search{
+    display: contents;
+  }

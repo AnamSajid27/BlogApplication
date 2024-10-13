@@ -1,0 +1,59 @@
+<div class="mat-body">
+<mat-card class="form">
+    <mat-card-content>
+        <div class="post-form">
+            <form [formGroup]="postForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName='name'>
+                  
+                    <!-- <span class="text-danger" >
+                        <p class="text-danger" *ngIf="f['name'].errors?.['required']">Post Name is required.</p>
+                    </span> -->
+                </mat-form-field>
+                <!-- <div class="text-danger" *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)" class="alert">
+                    <div  class="text-danger"  *ngIf="f['name'].errors?.['required']">
+                    Post Name is required.
+                  </div>
+                </div> -->
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Image</mat-label>
+                    <input matInput formControlName='image'>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Content</mat-label>
+                    <textarea rows="8" matInput formControlName='content'></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Poster By</mat-label>
+                    <input matInput formControlName='postedBy'>
+                </mat-form-field>
+
+                <div class="editor-tag" (click)="focusTagInput()">
+                    <span class="tag-item" *ngFor="let tag of tags">
+                          {{tag}}
+                          <span class="remove-tag" (click)="remove(tag)">×</span>
+                        </span>
+                        <input
+                        placeholder="Enter tag"
+                        #tagInput type="text"
+                        class="input-tag"
+                        (keyup)="onKeyUp($event)"
+                        formControlName="tag">
+                      </div>
+                
+
+
+                <button class="postButton" mat-raised-button routerLink="/create-post" [disabled]="!postForm.valid" (click)="createPost()">
+                    Create New Post
+                </button>
+
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>
+</div>
+<router-outlet></router-outlet>

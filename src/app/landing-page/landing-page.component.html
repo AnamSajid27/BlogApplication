@@ -1,0 +1,68 @@
+<mat-toolbar class="navbar">
+    <button mat-icon-button class="menu" aria-label="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span onclick="" routerLink="">BLOG</span>
+    <span class="header"></span>
+
+    <div class ="searchBar">
+      <mat-form-field class="search">
+        <mat-label class="search"><small>Enter keyword to search</small></mat-label>
+        <input matInput [(ngModel)]="name">
+      </mat-form-field>
+      <button class="button-search" (click)="search()"><mat-icon>search</mat-icon></button>
+    </div>
+
+    <div class="create-post">
+      <button mat-raised-button routerLink="/create-post">    
+       Create Post
+      </button>
+    </div>
+    <div class="view-post">
+      <button mat-raised-button routerLink="/view-all">    
+       View Post
+      </button>
+    </div>
+    <button mat-icon-button class="favorite favorite-icon" aria-label="favorite">
+      <mat-icon>favorite</mat-icon>
+    </button>
+   
+    <button mat-icon-button class="share" aria-label="share">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+
+
+
+<!-- <div *ngIf="result.length==0">
+  <mat-icon>no_sim</mat-icon>
+  <h6>No Search</h6>
+</div> -->
+
+<div *ngFor=" let item of result">
+  <!-- <mat-card>
+    <mat-card-header>
+        <div mat-card-avatar class="post"></div>
+        <mat-card-title>{{item.name}}</mat-card-title>
+        <mat-card-subtitle>Posted By: {{item.postedBy}} | Posted on: {{item.Date | date:'medium' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-grid-list cols="5">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <img mat-card-image src="item.jpg" class="image" alt="Card Image"/>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="1">
+
+            <mat-card-content>
+                {{item.content.length > 500 ? item.content.substr(0,500) + '...' : item.content}}
+            </mat-card-content>
+        </mat-grid-tile>
+    </mat-grid-list>
+  <hr>
+  <mat-card-actions>
+    <button mat-raised-button class="like" color="warn">{{item.likeCount }}<mat-icon> favorite</mat-icon> </button>
+    <button mat-raised-button color="accent">{{item.viewCount }}<mat-icon> remove_red_eye</mat-icon> </button>
+    <button mat-raised-button color="primary"   routerLink="/view-post/{{item.id}}">View</button>
+</mat-card-actions>
+</mat-card> -->
+</div>
+  <router-outlet></router-outlet>

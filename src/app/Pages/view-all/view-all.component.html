@@ -1,0 +1,30 @@
+<div class="allPost">
+    <div class="card-container" *ngFor="let item of allPost">
+
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="post"></div>
+                <mat-card-title>{{item.name}}</mat-card-title>
+                <mat-card-subtitle>Posted By: {{item.postedBy}} | Posted on: {{item.Date | date:'medium' }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-grid-list cols="5">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <img mat-card-image src="item.jpg" class="image" alt="Card Image"/>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="1">
+
+                    <mat-card-content>
+                        {{item.content.length > 500 ? item.content.substr(0,500) + '...' : item.content}}
+                    </mat-card-content>
+                </mat-grid-tile>
+            </mat-grid-list>
+          <hr>
+          <mat-card-actions>
+            <button mat-raised-button class="like" color="warn">{{item.likeCount }}<mat-icon> favorite</mat-icon> </button>
+            <button mat-raised-button color="accent">{{item.viewCount }}<mat-icon> remove_red_eye</mat-icon> </button>
+            <button mat-raised-button color="primary"   routerLink="/view-post/{{item.id}}">View</button>
+        </mat-card-actions>
+        </mat-card>
+
+    </div>
+</div>
